@@ -13,7 +13,7 @@ public class Gameplay : MonoBehaviour
     public Camera view;
 
     public GameObject pos11, pos12, pos13, pos14, pos21, pos22, pos23, pos24, pos31, pos32, pos33, pos34,
-                      prefCrane, prefKoi, prefDragon, prefEmpty;
+                      Neko, prefCrane, prefKoi, prefDragon, prefEmpty;
     private GameObject[,] field = new GameObject[3, 4];
     private GameObject choosenCard, choosenPos;
     private List<GameObject> avail_cards = new List<GameObject>();
@@ -121,6 +121,7 @@ public class Gameplay : MonoBehaviour
         if (count >= 5)
         {
             score = score + count - 5;
+            reference = FirebaseDatabase.DefaultInstance.RootReference.Child("Users").Push();
             reference.Child("ID").SetValueAsync("264823");
             reference.Child("Score").SetValueAsync(score.ToString());
             Debug.Log("Victory!");
@@ -130,6 +131,7 @@ public class Gameplay : MonoBehaviour
         if (count <= -5)
         {
             score = -50;
+            reference = FirebaseDatabase.DefaultInstance.RootReference.Child("Users").Push();
             reference.Child("ID").SetValueAsync("264823");
             reference.Child("Score").SetValueAsync(score.ToString());
             Debug.Log("Defeat!");
@@ -187,7 +189,6 @@ public class Gameplay : MonoBehaviour
 
     void Start()
     {
-        reference = FirebaseDatabase.DefaultInstance.RootReference.Child("Users").Push();
         short rand;
         field = new GameObject[3, 4] {{pos11, pos12, pos13, pos14},
                                       {pos21, pos22, pos23, pos24},
@@ -232,7 +233,7 @@ public class Gameplay : MonoBehaviour
                 {
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     RaycastHit hit;
-                    if (Physics.Raycast(ray, out hit, 3) && onField)
+                    if (Physics.Raycast(ray, out hit, 3) && onField && choosenCard)
                     {
                         for (int i = 0; i < 4; i++)
                         {
@@ -251,6 +252,22 @@ public class Gameplay : MonoBehaviour
                     {
                         choosenCard = hit.transform.gameObject;
                         FieldView();
+                    }
+                    if (Physics.Raycast(ray, out hit, 5) && hit.transform.gameObject == Neko && !onField && neko)
+                    {
+                        neko = false;
+                        for (int i = 0; i < 4; i++)
+                        {
+                            if (field[2, i].transform.GetComponent<Renderer>().sharedMaterial != prefEmpty.GetComponent<Renderer>().sharedMaterial)
+                            {
+                                int n = int.Parse(field[2, i].transform.GetChild(0).GetComponent<TextMeshPro>().text);
+                                field[2, i].transform.GetChild(0).GetComponent<TextMeshPro>().text = ((int)(n * 1.5f)).ToString();
+                                field[2, i].transform.GetChild(0).GetComponent<TextMeshPro>().color = Color.green;
+                                n = int.Parse(field[2, i].transform.GetChild(1).GetComponent<TextMeshPro>().text);
+                                field[2, i].transform.GetChild(1).GetComponent<TextMeshPro>().text = ((int)(n * 1.5f)).ToString();
+                                field[2, i].transform.GetChild(1).GetComponent<TextMeshPro>().color = Color.green;
+                            }
+                        }
                     }
                 }
                 if (Input.GetKeyDown("left shift") && pick_card && !onField)
