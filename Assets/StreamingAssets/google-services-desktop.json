@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "454014383422",
+    "firebase_url": "https://icthack3-default-rtdb.firebaseio.com",
+    "project_id": "icthack3",
+    "storage_bucket": "icthack3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454014383422:android:a5b25de19ee8f32708e86f",
+        "android_client_info": {
+          "package_name": "com.fortythird.ICTHack3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454014383422-a5mrj86sgfnmo2dcamr337ndqtvvu95m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fortythird.ICTHack3",
+            "certificate_hash": "4c78b62b97b754a6af9391236c63d8474f841dd3"
+          }
+        },
+        {
+          "client_id": "454014383422-mnfq72hu902nf93lh9c8auq12pj8qpqv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLdgt30JT0LACt-f29QSeOyMvGlTGxocY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454014383422-mnfq72hu902nf93lh9c8auq12pj8qpqv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

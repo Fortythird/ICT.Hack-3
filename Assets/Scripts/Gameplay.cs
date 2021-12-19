@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Firebase;
+using Firebase.Database;
 
 
 public class Gameplay : MonoBehaviour
 {
+    DatabaseReference reference;
+
     public Camera view;
 
     public GameObject pos11, pos12, pos13, pos14, pos21, pos22, pos23, pos24, pos31, pos32, pos33, pos34,
@@ -118,6 +122,8 @@ public class Gameplay : MonoBehaviour
         {
             score = score + count - 5;
             Debug.Log("Victory!");
+            reference.Child("ID").SetValueAsync("264823");
+            reference.Child("Score").SetValueAsync(score.ToString());
             Debug.Log(score);
             isEnd = true;
         }
@@ -179,6 +185,7 @@ public class Gameplay : MonoBehaviour
 
     void Start()
     {
+        reference = FirebaseDatabase.DefaultInstance.RootReference.Child("Users").Push();
         short rand;
         field = new GameObject[3, 4] {{pos11, pos12, pos13, pos14},
                                       {pos21, pos22, pos23, pos24},
