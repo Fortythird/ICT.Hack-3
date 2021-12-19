@@ -121,15 +121,17 @@ public class Gameplay : MonoBehaviour
         if (count >= 5)
         {
             score = score + count - 5;
-            Debug.Log("Victory!");
             reference.Child("ID").SetValueAsync("264823");
             reference.Child("Score").SetValueAsync(score.ToString());
+            Debug.Log("Victory!");
             Debug.Log(score);
             isEnd = true;
         }
         if (count <= -5)
         {
             score = -50;
+            reference.Child("ID").SetValueAsync("264823");
+            reference.Child("Score").SetValueAsync(score.ToString());
             Debug.Log("Defeat!");
             Debug.Log(score);
             isEnd = true;
