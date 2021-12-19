@@ -926,6 +926,7 @@ MonoBehaviour:
   pos32: {fileID: 756874721}
   pos33: {fileID: 1782415388}
   pos34: {fileID: 759461239}
+  Neko: {fileID: 1797228468506078589}
   prefCrane: {fileID: 7256800017842042624, guid: 8ddf0d0afd9b8b544a8b244ffc983f9e, type: 3}
   prefKoi: {fileID: 1768512209697421351, guid: 48c863c6e56deb444a566ac5160873da, type: 3}
   prefDragon: {fileID: 6426082648974966184, guid: 37169a0e4a7177248bf5769ce876f22e, type: 3}
@@ -3822,7 +3823,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -5225,7 +5226,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395974641}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.26, z: -1.56}
+  m_LocalPosition: {x: 0, y: 7.9, z: 0.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7878,7 +7879,7 @@ Transform:
   - {fileID: 4078990827806397447}
   - {fileID: 1007835011915121982}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 145.46, z: 0}
 --- !u!1 &1797228468506078589
 GameObject:
@@ -7889,6 +7890,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1421687679652100039}
+  - component: {fileID: 1797228468506078590}
   m_Layer: 0
   m_Name: Maneki Neko
   m_TagString: Untagged
@@ -7896,6 +7898,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &1797228468506078590
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797228468506078589}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 27.8, y: 55.49, z: 23.2}
+  m_Center: {x: 5.53, y: 27, z: 0}
 --- !u!33 &3297335056419639802
 MeshFilter:
   m_ObjectHideFlags: 0
